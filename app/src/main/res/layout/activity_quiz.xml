@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:id="@+id/text_question" />
+        android:id="@+id/text_question"
+        tools:text="Question will show up here"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -32,21 +33,26 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next_button"/>
 
-    <Button
-        android:id="@+id/previous_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Previous"/>
+
+        <Button
+            android:id="@+id/previous_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"
+            android:drawableLeft="@drawable/arrow_left"
+            android:drawablePadding="4dp"/>
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next_button"
+            android:drawableRight="@drawable/arrow_right"
+            android:drawablePadding="4dp"/>
     </LinearLayout>
-
 </LinearLayout>

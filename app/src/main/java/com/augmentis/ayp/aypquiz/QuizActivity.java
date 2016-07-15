@@ -12,6 +12,7 @@ public class QuizActivity extends AppCompatActivity {
     Button falseButton;
 
     Button nextButton;
+    Button previousButton;
     TextView questionText;
 
     Question[] questions = new Question[]{
@@ -29,6 +30,7 @@ public class QuizActivity extends AppCompatActivity {
         trueButton = (Button) findViewById(R.id.true_button);
         falseButton = (Button) findViewById(R.id.false_button);
         nextButton = (Button) findViewById(R.id.next_button);
+        previousButton = (Button) findViewById(R.id.previous_button);
         questionText = (TextView) findViewById(R.id.text_question);
 
         currentIndex = 0;
@@ -49,27 +51,41 @@ public class QuizActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//              if (currentIndex < questions.length -1 ){  // 0 1 2
-//                  currentIndex++;
-//              }else{
-//                  currentIndex=0;
-////              }
+              if (currentIndex < questions.length -1 ){  // 0 1 2
+                  currentIndex++;
+              }else{
+                  currentIndex=0;
+              }
 //                if (currentIndex>=questions.length){
 //                    currentIndex=0;
 //                }
-                currentIndex =++currentIndex%questions.length;
-                updateQuestion();
-//                questionText.setText(questions[currentIndex].getQuestionId());
+//                currentIndex1 =++currentIndex1%questions.length;
+//                updateQuestion();
+                questionText.setText(questions[currentIndex].getQuestionId());
             }
         });
-
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentIndex <= questions.length -1 && currentIndex != 0 ){  // 0 1 2
+                    currentIndex--;
+                }else{
+                    currentIndex=questions.length-1;
+                }
+//                currentIndex = --currentIndex%questions.length;
+//                if(currentIndex == 0 ) currentIndex +=4;
+                questionText.setText(questions[currentIndex].getQuestionId());
+            }
+        });
     }
-    public void updateQuestion()
-    {
-        questionText.setText(questions[currentIndex].getQuestionId());
-    }
+//    public void updateQuestion()
+//    {
+//        questionText.setText(questions[currentIndex1].getQuestionId());
+//    }
     public void checkAnswer(boolean answer){
         boolean correctAnswer =  questions[currentIndex].getAnswer();
+//        boolean correctAnswer2 = questions[currentIndex2].getAnswer();
+
         int result = (answer == correctAnswer)? R.string.correct_text : R.string.incorrect_text ;
 //        *if(answer== correctAnswer) {
 //            result = R.string.correct_text;
@@ -81,5 +97,8 @@ public class QuizActivity extends AppCompatActivity {
 //                    Toast.LENGTH_SHORT).show();
 //        }*/
         Toast.makeText(QuizActivity.this,result,Toast.LENGTH_SHORT).show();
+//        int result2 = (answer == correctAnswer2)? R.string.correct_text : R.string.incorrect_text ;
+//        Toast.makeText(QuizActivity.this,result,Toast.LENGTH_SHORT).show();
     }
+
 }

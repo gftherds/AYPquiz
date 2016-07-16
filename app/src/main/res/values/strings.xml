@@ -10,5 +10,12 @@
     <string name="question_1_nine"> The longest river in the world is Nile? </string> <!-- true-->
     <string name="question_2_rawin">Rawin is happy</string> <!-- true-->
     <string name="question_3_math">2+2=5 ?</string> <!-- false -->
-    <string name="question_4_mar">Mars dose not have \' moon?</string> <!-- false -->
+    <string name="question_4_mar">Mars dose not have \' moon?</string>
+    <string name="question_5_who">Are you pearl?</string>
+    <string name="question_6_city">Is Bangkok the biggest country?</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="confirm_button">You really want to khow the answers?</string>
+    <string name="answer_is_true">True</string>
+    <string name="answer_is_false">False</string>
+    <string name="cheater_text">You are Cheater.</string> <!-- false -->
 </resources>

@@ -19,24 +19,24 @@ public class QuizActivity extends AppCompatActivity {
     private Button nextButton;
     private Button previousButton;
     private Button cheatButton;
-    private TextView questionText;
 
-    Question[] questions = new Question[]{
+    private  TextView questionText;
+
+    int currentIndex;
+    private static final String TAG = "AYPQUIZ";
+    private static final String INDEX= "INDEX";
+    private static final String CHEAT = "CHEAT";
+    private boolean isCheater;
+
+    static Question[] questions = new Question[]{
             new Question(R.string.question_1_nine,true),
             new Question(R.string.question_2_rawin, true),
             new Question(R.string.question_3_math, false),
             new Question(R.string.question_4_mar, false),
             new Question(R.string.question_5_who,true),
             new Question(R.string.question_6_city,false)
-
-
     };
-    int currentIndex;
-    private static final String TAG = "AYPQUIZ";
-    private static final String INDEX= "INDEX";
-    private static final String CHEAT = "CHEAT";
-    private boolean isCheater;
-    private boolean testt;
+
 
 
     @Override
@@ -45,8 +45,6 @@ public class QuizActivity extends AppCompatActivity {
         Log.d(TAG,"State is saving");
         savedInstanceState.putInt(INDEX, currentIndex);
         savedInstanceState.putBoolean(CHEAT,isCheater);
-
-
     }
 
 
@@ -146,9 +144,11 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+
 //    private void savecheater(){
 //
 //    }
+
     private void resetCheater(){
         isCheater = false;
     }
@@ -156,6 +156,7 @@ public class QuizActivity extends AppCompatActivity {
     {
         questionText.setText(questions[currentIndex].getQuestionId());
     }
+
     public void checkAnswer(boolean answer){
         boolean correctAnswer =  questions[currentIndex].getAnswer();
         int result;
